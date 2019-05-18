@@ -1,0 +1,8 @@
+package: "work-at-olist"
+import:
+- package: github.com/gin-gonic/gin
+  repo: https://github.com/gin-gonic/gin.git
+- package: go.elastic.co/apm
+- package: howett.net/plist
+  vcs: git
+  repo: https://github.com/DHowett/go-plist
