@@ -1,5 +1,5 @@
-hash: 2fe2ad52b470c4eeb6e06f965a9ffc199fcd8d3344308bae0fbaa71c53eb93ab
-updated: 2019-05-18T15:54:59.15694-03:00
+hash: 8e68dcb46f86d28d214d147ceee946213edc88f4b50734a4aecdadeec63566c7
+updated: 2019-05-19T18:09:51.323263-03:00
 imports:
 - name: github.com/armon/go-radix
   version: 1a2de0c21c94309923825da3df33a4381872c795
@@ -49,6 +49,12 @@ imports:
   version: 69b34d4ec901851247ae7e77d33909caf9df99ed
 - name: github.com/json-iterator/go
   version: 2433035e513208b0f7bd5b50d0aecd889b2c1ff8
+- name: github.com/mailru/easyjson
+  version: 60711f1a8329503b04e1c88535f419d0bb440bff
+  subpackages:
+  - buffer
+  - jlexer
+  - jwriter
 - name: github.com/manucorporat/stats
   version: 3ba42d56d227cf2a6086b63baba5e00669235853
 - name: github.com/mattn/go-isatty
@@ -57,6 +63,11 @@ imports:
   version: bacd9c7ef1dd9b15be4a9909b8ac7a4e313eec94
 - name: github.com/modern-go/reflect2
   version: 94122c33edd36123c84d5368cfb2b69df93a0ec8
+- name: github.com/olivere/elastic
+  version: 8a3f2cdf773521f77a2b9517d131c6cf28be6ca1
+  subpackages:
+  - config
+  - uritemplates
 - name: github.com/pkg/errors
   version: 059132a15dd08d6704c67711dae0cf35ab991756
 - name: github.com/pmezard/go-difflib

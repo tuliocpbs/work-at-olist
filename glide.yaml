@@ -6,3 +6,5 @@ import:
 - package: howett.net/plist
   vcs: git
   repo: https://github.com/DHowett/go-plist
+- package: "github.com/olivere/elastic"
+  version: ^v6.2.17
