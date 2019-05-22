@@ -7,7 +7,9 @@ services:
       - 8080:8080
     depends_on:
       - apm
+      - elasticsearch
     environment:
+      ELASTIC_URL: http://elasticsearch:9200
       ELASTIC_APM_SERVER_URL: http://apm:8200
       ELASTIC_APM_SERVICE_NAME: work-at-olist
 
