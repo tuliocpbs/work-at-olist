@@ -97,14 +97,42 @@ func saveEndCall(r *models.RecordEntry) (err error) {
 	if err != nil {
 		return
 	}
-	callEnd.Cost = calculateCallCost()
+	callEnd.Cost, err = callCost(callEnd.ID, callEnd.TimeStampEnd)
 
 	repo.Save(callEnd)
 	return
 }
 
-func calculateCallCost() float32 {
-	return 0.0
+func callCost(callID int, endCallTime time.Time) (float32, error) {
+
+	var cs models.CallDetailsStart
+	err := repo.Get(callID, &cs)
+	if err != nil {
+		return 0, err
+	}
+
+	query := repo.TermQueryLE(endCallTime)
+
+	var cost models.Cost
+	err = repo.Search(query, &cost)
+	if err != nil {
+		return 0, err
+	}
+
+	callCharge := calculateCallCost(endCallTime, cs.TimeStampStart, cost.StandingCharge, cost.MinuteCharge)
+
+	return callCharge, nil
+}
+
+func calculateCallCost(ect time.Time, cst time.Time, sc float32, mc float32) float32 {
+	minutesCall := int(ect.Sub(cst).Minutes())
+	freeMinutes := getFreeMinutes(ect, cst)
+	return sc + mc*float32(minutesCall-freeMinutes)
+}
+
+func getFreeMinutes(ect time.Time, cst time.Time) int {
+	// TODO: Implment this function
+	return 0
 }
 
 func verifyType(t *string) error {
