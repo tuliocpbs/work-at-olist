@@ -81,7 +81,6 @@ func Get(ID int, typ interface{}) (err error) {
 }
 
 func Search(query elastic.Query, typ interface{}) (err error) {
-
 	switch reflect.TypeOf(typ) {
 	case reflect.TypeOf(&models.Cost{}):
 		sr, err := DB.search(query, 1, "hist-cost")
@@ -92,11 +91,35 @@ func Search(query elastic.Query, typ interface{}) (err error) {
 		for _, item := range sr.Each(reflect.TypeOf(typ).Elem()) {
 			*typ.(*models.Cost) = item.(models.Cost)
 		}
+
+		return nil
 	default:
 		log.Println("Data not found, Error: Model not found")
+		return errors.New("Data not found, Error: Model not found")
 	}
+}
 
-	return nil
+func SearchList(query elastic.Query, typ interface{}) (interface{}, error) {
+	switch reflect.TypeOf(typ) {
+	case reflect.TypeOf(&models.CallDetailsStart{}):
+		sr, err := DB.search(query, 10000, "call-details") // Set max of 10000 items to return
+		if err != nil {
+			return nil, err
+		}
+
+		var cdsList []models.CallDetailsStart
+		var cds models.CallDetailsStart
+		for _, item := range sr.Each(reflect.TypeOf(cds)) {
+			if t, ok := item.(models.CallDetailsStart); ok {
+				cdsList = append(cdsList, t)
+			}
+		}
+
+		return cdsList, nil
+	default:
+		log.Println("Data not found, Error: Model not found")
+		return nil, errors.New("Data not found, Error: Model not found")
+	}
 }
 
 func Save(data interface{}) {
