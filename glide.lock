@@ -1,0 +1,210 @@
+hash: 8e68dcb46f86d28d214d147ceee946213edc88f4b50734a4aecdadeec63566c7
+updated: 2019-05-25T23:31:05.291602-03:00
+imports:
+- name: github.com/armon/go-radix
+  version: 1a2de0c21c94309923825da3df33a4381872c795
+- name: github.com/campoy/embedmd
+  version: c59ce00e02967db5e93d897330142a3ef6145786
+  subpackages:
+  - embedmd
+- name: github.com/client9/misspell
+  version: c0b55c8239520f6b5aa15a0207ca8b28027ba49e
+  subpackages:
+  - cmd/misspell
+- name: github.com/dustin/go-broadcast
+  version: f664265f5a662fb4d1df7f3533b1e8d0e0277120
+- name: github.com/elastic/go-sysinfo
+  version: 59ef8c0eae46c0929e3b219ac86368d4b5934f91
+  subpackages:
+  - internal/registry
+  - providers/darwin
+  - providers/linux
+  - providers/shared
+  - providers/windows
+  - types
+- name: github.com/elastic/go-windows
+  version: bb1581babc04d5cb29a2bfa7a9ac6781c730c8dd
+- name: github.com/gin-contrib/sse
+  version: 22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae
+- name: github.com/gin-gonic/autotls
+  version: be87bd5ef97b7398e468c35ad266aabf099a095b
+- name: github.com/gin-gonic/gin
+  version: c65e5efc9a0ae6666819cda8e9a86db4d3d19833
+  repo: https://github.com/gin-gonic/gin.git
+  subpackages:
+  - binding
+  - internal/json
+  - render
+- name: github.com/golang/protobuf
+  version: 5e707b20cbb91bc0be4fe3a4f1725fc565735fbd
+  subpackages:
+  - proto
+  - ptypes
+  - ptypes/any
+  - ptypes/duration
+  - ptypes/timestamp
+- name: github.com/jessevdk/go-assets
+  version: 4f4301a06e153ff90e17793577ab6bf79f8dc5c5
+- name: github.com/joeshaw/multierror
+  version: 69b34d4ec901851247ae7e77d33909caf9df99ed
+- name: github.com/json-iterator/go
+  version: 2433035e513208b0f7bd5b50d0aecd889b2c1ff8
+- name: github.com/mailru/easyjson
+  version: 60711f1a8329503b04e1c88535f419d0bb440bff
+  subpackages:
+  - buffer
+  - jlexer
+  - jwriter
+- name: github.com/manucorporat/stats
+  version: 3ba42d56d227cf2a6086b63baba5e00669235853
+- name: github.com/mattn/go-isatty
+  version: 3fb116b820352b7f0c281308a4d6250c22d94e27
+- name: github.com/modern-go/concurrent
+  version: bacd9c7ef1dd9b15be4a9909b8ac7a4e313eec94
+- name: github.com/modern-go/reflect2
+  version: 94122c33edd36123c84d5368cfb2b69df93a0ec8
+- name: github.com/olivere/elastic
+  version: 6f5e4e72d33dc7dfef8e6110b9b01b10d2026b2b
+  subpackages:
+  - config
+  - uritemplates
+- name: github.com/pkg/errors
+  version: 059132a15dd08d6704c67711dae0cf35ab991756
+- name: github.com/pmezard/go-difflib
+  version: 792786c7400a136282c1664665ae0a8db921c6c2
+  subpackages:
+  - difflib
+- name: github.com/prometheus/procfs
+  version: 488faf799f863e27e50c516468f76ae8f1da20a5
+  subpackages:
+  - internal/util
+  - nfs
+  - xfs
+- name: github.com/santhosh-tekuri/jsonschema
+  version: 5d49c9dfc7836f0552e532b4b20caebf51b944e3
+  subpackages:
+  - decoders
+  - formats
+  - loader
+  - mediatypes
+- name: github.com/thinkerou/favicon
+  version: 94a442a49da6e2d44bdd5e0d2e2e185c43a19d93
+- name: github.com/ugorji/go
+  version: b30ce92d500bfa0cea9bd56f104cf3eb339fd585
+  subpackages:
+  - codec
+- name: go.elastic.co/apm
+  version: 74cc0c2b99eda25db14577c0e5fc3a1da3eabdd4
+  subpackages:
+  - internal/apmconfig
+  - internal/apmcontext
+  - internal/apmhostutil
+  - internal/apmhttputil
+  - internal/apmlog
+  - internal/apmschema
+  - internal/apmstrings
+  - internal/iochan
+  - internal/ringbuffer
+  - internal/wildcard
+  - model
+  - module/apmgin
+  - module/apmhttp
+  - stacktrace
+  - transport
+- name: go.elastic.co/fastjson
+  version: 676cec79bd027a8a4618de0991f27cfe632978f1
+- name: golang.org/x/crypto
+  version: 0c41d7ab0a0ee717d4590a44bcb987dfd9e183eb
+  subpackages:
+  - acme
+  - acme/autocert
+- name: golang.org/x/lint
+  version: 5906bd5c48cd840279ace88b165057fbbd7fb35a
+  subpackages:
+  - golint
+- name: golang.org/x/net
+  version: 04a2e542c03f1d053ab3e4d6e5abcd4b66e2be8e
+  subpackages:
+  - context
+  - http/httpguts
+  - http2
+  - http2/hpack
+  - idna
+  - internal/timeseries
+  - trace
+- name: golang.org/x/sys
+  version: eda9bb28ed513021f3e6a2a361031adc3d8a6301
+  subpackages:
+  - unix
+  - windows
+  - windows/registry
+- name: golang.org/x/text
+  version: 4d1c5fb19474adfe9562c9847ba425e7da817e81
+  subpackages:
+  - secure/bidirule
+  - transform
+  - unicode/bidi
+  - unicode/norm
+- name: golang.org/x/tools
+  version: 3e7aa9e59977626dc60433e9aeadf1bb63d28295
+  subpackages:
+  - go/ast/astutil
+  - go/gcexportdata
+  - go/internal/gcimporter
+- name: google.golang.org/genproto
+  version: 94acd270e44e65579b9ee3cdab25034d33fed608
+  subpackages:
+  - googleapis/rpc/status
+- name: google.golang.org/grpc
+  version: ff2aa05958775030998dbe2f9bccbe2af324adf4
+  subpackages:
+  - balancer
+  - balancer/base
+  - balancer/roundrobin
+  - codes
+  - connectivity
+  - credentials
+  - encoding
+  - encoding/proto
+  - grpclog
+  - internal
+  - internal/backoff
+  - internal/channelz
+  - internal/envconfig
+  - internal/grpcrand
+  - internal/transport
+  - keepalive
+  - metadata
+  - naming
+  - peer
+  - resolver
+  - resolver/dns
+  - resolver/passthrough
+  - stats
+  - status
+  - tap
+- name: gopkg.in/go-playground/validator.v8
+  version: 5f1438d3fca68893a817e4a66806cea46a9e4ebf
+- name: gopkg.in/yaml.v2
+  version: 5420a8b6744d3b0345ab293f6fcba19c978f1183
+- name: howett.net/plist
+  version: 591f970eefbbeb04d7b37f334a0c4c3256e32876
+  repo: https://github.com/DHowett/go-plist
+  vcs: git
+testImports:
+- name: github.com/google/go-cmp
+  version: 6f77996f0c42f7b84e5a2b252227263f93432e9b
+  subpackages:
+  - cmp
+  - cmp/internal/diff
+  - cmp/internal/flags
+  - cmp/internal/function
+  - cmp/internal/value
+- name: gotest.tools
+  version: d1a6560d983a17c84a34edeb67898f2dc00bb646
+  subpackages:
+  - assert
+  - assert/cmp
+  - internal/difflib
+  - internal/format
+  - internal/source
