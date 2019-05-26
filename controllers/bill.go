@@ -59,15 +59,15 @@ func getBill(b *[]models.BillRecord, sub int, month int, year int) (int, error) 
 
 func getPeriodBoundaries(m int, y int) (time.Time, time.Time, error) {
 	if m > 0 {
-		return getMonthBoundaries(m, y)
+		return getMonthBoundaries(m)
 	} else if y > 0 {
-		return getYearBoundaries(m, y)
+		return getYearBoundaries(y)
 	}
 
 	return time.Time{}, time.Time{}, errors.New("Year or Month not informed")
 }
 
-func getMonthBoundaries(m int, y int) (time.Time, time.Time, error) {
+func getMonthBoundaries(m int) (time.Time, time.Time, error) {
 	var err error
 	var start time.Time
 	var end time.Time
@@ -86,7 +86,7 @@ func getMonthBoundaries(m int, y int) (time.Time, time.Time, error) {
 	return start, end, err
 }
 
-func getYearBoundaries(m int, y int) (time.Time, time.Time, error) {
+func getYearBoundaries(y int) (time.Time, time.Time, error) {
 	var err error
 	var start time.Time
 	var end time.Time
