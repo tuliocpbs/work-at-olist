@@ -119,20 +119,45 @@ func callCost(callID int, endCallTime time.Time) (float32, error) {
 		return 0, err
 	}
 
-	callCharge := calculateCallCost(endCallTime, cs.TimeStampStart, cost.StandingCharge, cost.MinuteCharge)
+	callCharge, err := calculateCallCost(endCallTime, cs.TimeStampStart, cost.StandingCharge, cost.MinuteCharge)
+	if err != nil {
+		return 0, err
+	}
 
 	return callCharge, nil
 }
 
-func calculateCallCost(ect time.Time, cst time.Time, sc float32, mc float32) float32 {
-	minutesCall := int(ect.Sub(cst).Minutes())
-	freeMinutes := getFreeMinutes(ect, cst)
-	return sc + mc*float32(minutesCall-freeMinutes)
+func calculateCallCost(ect time.Time, cst time.Time, sc float32, mc float32) (float32, error) {
+
+	if ect.Sub(cst).Minutes() >= 0 {
+		minutesCall := countCallMinutes(cst, ect)
+		return sc + mc*float32(minutesCall), nil
+	}
+
+	return 0, errors.New("Error: EndCallDate smaller than StartCallDate")
 }
 
-func getFreeMinutes(ect time.Time, cst time.Time) int {
-	// TODO: Implment this function
-	return 0
+func countCallMinutes(cst time.Time, ect time.Time) int {
+	var durationCall float64
+	callTime := cst.Add(time.Minute * 1)
+	earlyLimit := time.Date(callTime.Year(), callTime.Month(), callTime.Day(), 6, 0, 0, 0, time.UTC)
+	lateLimit := time.Date(callTime.Year(), callTime.Month(), callTime.Day(), 22, 0, 0, 0, time.UTC)
+
+	for ect.Sub(callTime) > 0 {
+		if callTime.Sub(earlyLimit).Minutes() > 0.0 && callTime.Sub(lateLimit).Minutes() < 0.0 { // Interval to considerer charge
+			durationCall += 1.0
+		}
+
+		callTime = callTime.Add(time.Minute * 1)
+		if callTime.Day() != earlyLimit.Day() { // Verify if the day change after add 1 minute
+			earlyLimit = earlyLimit.AddDate(0, 0, 1)
+			lateLimit = lateLimit.AddDate(0, 0, 1)
+		}
+	}
+	callTime = callTime.Add(time.Minute * -1)
+	durationCall += ect.Sub(callTime).Minutes()
+
+	return int(durationCall)
 }
 
 func verifyType(t *string) error {
