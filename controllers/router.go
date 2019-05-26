@@ -14,6 +14,7 @@ func ConfigRouter() *gin.Engine {
 	{
 		v1.Use(apmgin.Middleware(router))
 		configReceiveCallsRouter(v1)
+		configBillRouter(v1)
 	}
 
 	return router
