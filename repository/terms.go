@@ -14,3 +14,14 @@ func TermQueryLE(t time.Time) *elastic.BoolQuery {
 
 	return query
 }
+
+func TermQueryBill(sub int, start time.Time, end time.Time) *elastic.BoolQuery {
+	rangeQ := elastic.NewRangeQuery("timestamp_end").
+		Gte(start).
+		Lte(end)
+	query := elastic.NewBoolQuery().
+		Must(elastic.NewTermQuery("source", sub)).
+		Filter(rangeQ)
+
+	return query
+}
