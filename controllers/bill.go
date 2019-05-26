@@ -95,7 +95,7 @@ func getYearBoundaries(y int) (time.Time, time.Time, error) {
 	if y >= now.Year() {
 		err = errors.New("This telephone bill period has not ended")
 	} else {
-		start = time.Date(now.Year(), time.Month(1), 1, 0, 0, 0, 0, time.UTC)
+		start = time.Date(now.Year()-1, time.Month(1), 1, 0, 0, 0, 0, time.UTC)
 		end = start.AddDate(1, 0, 0).Add(-time.Nanosecond)
 	}
 
